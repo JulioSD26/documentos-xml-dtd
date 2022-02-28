@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+EJERCICIO 2
+Escribir la DTD que permita validar el documento XML que se muestra a continuación.
+Hacer dos versiones en cada caso: DTD externa e interna.
+Además se sabe que el siempre tiene que existir
+(1) al menos un domicilio,
+y que el
+(2)atributo “tipo” es obligatorio,
+y sólo puede tomar los valores
+(3)“familiar” o “habitual”.
+-->
+        <!--DTD INTERNO-->
+<!--
+    <!DOCTYPE matricula [
+        <!ELEMENT matricula (personal|pago)*>
+        <!ELEMENT personal (dni,nombre,titulacion,curso_academico,domicilios)*>
+        <!ELEMENT dni (#PCDATA)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT titulacion (#PCDATA)>
+        <!ELEMENT curso_academico (#PCDATA)>
+        <!ELEMENT domicilios (domicilio)+> (1)
+        <!ELEMENT domicilio (nombre)>
+        <!ATTLIST domicilio
+                tipo CDATA #REQUIRED> (2)
+
+        <!ELEMENT tipo_matricula (#PCDATA)>
+        <!ELEMENT pago (tipo_matricula)>
+
+        ]>
+-->
+<!DOCTYPE matricula SYSTEM "matricula.dtd"
+
+<matricula>
+    <personal>
+        <dni>99223366M</dni>
+        <nombre>Juan Pardo Martín</nombre>
+        <titulacion>Ingeniería Informática</titulacion>
+        <curso_academico>1997/1998</curso_academico>
+        <domicilios>
+            <domicilio tipo="familiar">
+                <nombre>C/ Principal nº1</nombre>
+            </domicilio>
+            <domicilio tipo="habitual">
+                <nombre>C/ Secundaria nº2</nombre>
+            </domicilio>
+        </domicilios>
+    </personal>
+    <pago>
+        <tipo_matricula>Matrícula Ordinaria</tipo_matricula>
+    </pago>
+</matricula>
