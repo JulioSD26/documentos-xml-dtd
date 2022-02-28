@@ -1,4 +1,4 @@
-<!ELEMENT matricula (personal|pago)*>
+<!ELEMENT matricula (personal, pago)*>
         <!ELEMENT personal (dni,nombre,titulacion,curso_academico,domicilios)*>
         <!ELEMENT dni (#PCDATA)>
         <!ELEMENT nombre (#PCDATA)>
@@ -7,6 +7,6 @@
         <!ELEMENT domicilios (domicilio)+> <!--(1)-->
         <!ELEMENT domicilio (nombre)>
         <!ATTLIST domicilio
-                tipo CDATA #REQUIRED> <!--(2)-->
+                tipo (familiar | habitual) #REQUIRED> <!--(2)-->
         <!ELEMENT tipo_matricula (#PCDATA)>
         <!ELEMENT pago (tipo_matricula)>

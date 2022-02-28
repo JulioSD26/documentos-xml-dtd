@@ -13,7 +13,7 @@ y sólo puede tomar los valores
         <!--DTD INTERNO-->
 <!--
     <!DOCTYPE matricula [
-        <!ELEMENT matricula (personal|pago)*>
+        <!ELEMENT matricula (personal,pago)*>
         <!ELEMENT personal (dni,nombre,titulacion,curso_academico,domicilios)*>
         <!ELEMENT dni (#PCDATA)>
         <!ELEMENT nombre (#PCDATA)>
